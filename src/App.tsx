@@ -76,9 +76,6 @@ const products = [
 function HomePage() {
   const { t } = useLanguage();
 
-  const setCurrentView = (view: string): void => {
-    console.log(`Navigating to view: ${view}`);
-  };
 
   return (
     <>
@@ -97,12 +94,22 @@ function HomePage() {
             <div className="text-center text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('hero.title')}</h1>
               <p className="text-xl mb-8">{t('hero.subtitle')}</p>
-              <button
-                onClick={() => setCurrentView('create-shop')}
-                className="bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100"
+              <Link
+                to="/create-shop"
+                className="mt-4 px-8 py-4 relative bg-gradient-to-r from-gray-800 to-black backdrop-blur-sm border border-white/20 text-white font-medium rounded-full hover:from-gray-700 hover:to-black hover:border-white/40 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-gray-800/20 hover:shadow-xl active:shadow-md active:scale-95 overflow-hidden group"
               >
-                {t('hero.start_selling')}
-              </button>
+                {/* Glow effect */}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-800/50 to-black/50 blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-300"></span>
+
+                {/* Shine effect */}
+                <span className="absolute -inset-x-full top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 group-hover:animate-[shine_1.5s_ease_infinite] opacity-0 group-hover:opacity-100"></span>
+
+                {/* Inner highlight */}
+                <span className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+
+                {/* Text with proper z-index */}
+                <span className="relative z-10">{t('hero.start_selling')}</span>
+              </Link>
             </div>
           </div>
         </div>
