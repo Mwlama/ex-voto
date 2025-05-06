@@ -1,5 +1,5 @@
 import React from 'react';
-import { Store, Image, DollarSign, Truck, Shield, CreditCard } from 'lucide-react';
+import { Image, Truck, Shield, CreditCard } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ShopForm = () => {
